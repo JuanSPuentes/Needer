@@ -234,11 +234,12 @@ if DEBUG is True:
 else:
     STATIC_ROOT = BASE_DIR / "static"
 
-    #GS_CREDENTIALS = service_account.Credentials.from_service_account_file(os.path.join(BASE_DIR,"credentials.json"))  
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_file(os.path.join(BASE_DIR,"credentials.json"))  
     GOOGLE_APPLICATION_CREDENTIALS = '/path/service-account.json'
     ## STATIC FILES ##  
 
-    STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder', 'django.contrib.staticfiles.finders.AppDirectoriesFinder', )   
+    STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder', 
+                           'django.contrib.staticfiles.finders.AppDirectoriesFinder', )   
 
     DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     GS_BUCKET_NAME = 'needer'
